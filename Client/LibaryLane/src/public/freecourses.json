@@ -1,0 +1,88 @@
+[
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": 0,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "category": "Free",
+      "genre": "Classic Fiction"
+    },
+    {
+      "id": 2,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": 200,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "genre": "Historical Fiction"
+    },
+    {
+      "id": 3,
+      "title": "1984",
+      "author": "George Orwell",
+      "price": 0,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "category": "Free",
+      "genre": "Dystopian Fiction"
+    },
+    {
+      "id": 4,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "price": 400,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "genre": "Romance"
+    },
+    {
+      "id": 5,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "price": 0,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "category": "Free",
+      "genre": "Young Adult Fiction"
+    },
+    {
+      "id": 6,
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "price": 100,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "genre": "Philosophical Fiction"
+    },
+    {
+      "id": 7,
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "price": 0,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "category": "Free",
+      "genre": "Fantasy"
+    },
+    {
+      "id": 8,
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "price": 300,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "genre": "Adventure Fiction"
+    },
+    {
+      "id": 9,
+      "title": "Jane Eyre",
+      "author": "Charlotte Bronte",
+      "price": 0,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "category": "Free",
+      "genre": "Gothic Fiction"
+    },
+    {
+      "id": 10,
+      "title": "The Adventures of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "price": 600,
+      "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1735810792~exp=1735814392~hmac=8f879f3b160d993d91b6861aaf501890f647f7c9795771f29904a9ac2fb76dff&w=826",
+      "genre": "Mystery"
+    }
+  ]
+  
