@@ -3,7 +3,7 @@ import  hero_png  from '../assets/hero.png'
 const Hero = () => {
   return (
     <>
-      <div className="max-w-screen-2xl contianer mx-auto md:px-20 px-4 flex flex-col md:flex-row">
+      <div className="max-w-screen-2xl contianer mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10">
         {/* Left Section */}
         <div className="w-full md:w-1/2 mt-12 md:mt-32">
           <div className="space-y-2">
