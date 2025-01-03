@@ -1,9 +1,11 @@
 
 const OurBooks = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className="">
+        Courses
+      </div> 
+    </>
   )
 }
 
