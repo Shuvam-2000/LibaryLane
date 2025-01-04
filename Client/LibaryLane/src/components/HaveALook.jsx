@@ -61,7 +61,7 @@ const HaveALook = () => {
                   <div className="p-2">
                     <p className="text-center mb-4 text-sm font-bold">Name: {book.title}</p>
                     <p className="text-center mb-4 text-xs text-gray-500 font-bold">Author: {book.author}</p>
-                    <p className="text-center text-sm bg-red-500 text-white rounded-lg py-2 mt-10">{book.category}</p>
+                    <p className="text-center text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg py-2 mt-10">{book.category ? 'Read'  : ''}</p>
                   </div>
                 </div>
               </div>
