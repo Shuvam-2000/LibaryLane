@@ -21,7 +21,7 @@ const Footer = () => {
           <h2 className="text-lg font-semibold mt-6 mb-4 tracking-widest">COMPANY</h2>
           <div className="space-x-6">
             <Link to="/" className="text-black hover:text-[#f21c1c]">Home</Link>
-            <Link to="/collection" className="text-black hover:text-[#f21c1c]">Our Books</Link>
+            <Link to="/ourbooks" className="text-black hover:text-[#f21c1c]">Our Books</Link>
             <Link to="/aboutus" className="text-black hover:text-[#f21c1c]">About Us</Link>
             <Link to="/contact" className="text-black hover:text-[#f21c1c]">Contact Us</Link>
           </div>
