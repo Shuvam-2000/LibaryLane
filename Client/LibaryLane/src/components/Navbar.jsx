@@ -43,11 +43,11 @@ const Navbar = () => {
 
             {/* Sidebar for Mobile View */}
             <div className={`fixed top-0 right-0 h-full bg-white shadow-lg transform transition-transform duration-500 ease-in-out ${menuVisible ? "translate-x-0" : "translate-x-full"}`}style={{ width: "80%" }}>
-                <div className="flex flex-col text-gray-600 h-full gap-4">
+                <div className="flex flex-col text-gray-600 h-full gap-6">
                     {/* Close Button */}
                     <button
                         onClick={() => setMenuVisible(false)}
-                        className="self-start p-4 text-xl text-black"
+                        className="self-start p-4 text-3xl text-black"
                     >
                         &times;
                     </button>
