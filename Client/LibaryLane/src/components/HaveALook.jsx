@@ -2,11 +2,15 @@ import freecourses from '../public/freecourses.json';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
 
 const HaveALook = () => {
 
   // filtering free books from data
   const filterBooks = freecourses.filter((data) => data.category === 'Free');
+
+  // navigate to sotry page
+  const navigate = useNavigate()
 
   var settings = {
     dots: true,
@@ -61,7 +65,7 @@ const HaveALook = () => {
                   <div className="p-2">
                     <p className="text-center mb-4 text-sm font-bold">Name: {book.title}</p>
                     <p className="text-center mb-4 text-xs text-gray-500 font-bold">Author: {book.author}</p>
-                    <p className="text-center text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg py-2 mt-10">{book.category ? 'Read'  : ''}</p>
+                    <p className="text-center text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg py-2 mt-10" onClick={() => navigate(`/story/${book.id}`)}>{book.category ? 'Read'  : ''}</p>
                   </div>
                 </div>
               </div>
