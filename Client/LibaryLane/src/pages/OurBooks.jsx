@@ -1,6 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import freecourses from '../public/freecourses.json';
 
 const OurBooks = () => {
+
+  const navigate = useNavigate()
+
+  // // Handle click for Read or Buy actions
+  // const handleclick = (book) => {
+  //   if (book.category) {
+  //     // If the book is free (category is truthy), navigate to the story page
+  //     navigate(`/story/${book.id}`);
+  //   } else {
+  //     // Handle the "Buy" action (e.g., show modal or redirect to store)W
+  //     console.log('Proceed to buy the book');
+  //   }
+  // };
+
   return (
     <>
       <div className="min-h-screen">
@@ -79,7 +94,7 @@ const OurBooks = () => {
                 <button
                   className={`w-full text-sm ${
                     book.category ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
-                  } text-white rounded-lg py-2 mt-4 transition duration-200`}
+                  } text-white rounded-lg py-2 mt-4 transition duration-200`} onClick={() => book.category ? navigate(`/story/${book.id}`): console.log('Please Buy The Book') }
                 >
                   {book.category ? "Read" : "Buy"}
                 </button>
