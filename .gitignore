@@ -1,6 +1,7 @@
 # dependencies
-/Client/node_modules
-/Server/node_modules
+node_modules/
+
+# Environment Files
 .env
 
 # Logs
@@ -12,7 +13,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
 dist
 dist-ssr
 *.local
