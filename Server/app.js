@@ -19,14 +19,14 @@ const PORT = process.env.PORT || 8001;
 app.use(bodyParser.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded request bodies
 app.use(cookieParser()); // Enable Cookie Parsing
-app.use(cors());
+app.use(cors()); // Enable CORS for all routes
 
 // test route
 app.get('/', (req,res) => {
     res.send('Hello')
 })
 
-// defining the routes
+// defining the routes for the appllication
 app.use('/libarylane', bookRoute);
 
 // Start the server
