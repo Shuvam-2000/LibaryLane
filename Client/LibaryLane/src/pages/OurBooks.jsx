@@ -1,9 +1,29 @@
 import { useNavigate } from 'react-router-dom';
-import freecourses from '../public/freecourses.json';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const OurBooks = () => {
 
   const navigate = useNavigate()
+
+  // state for rendering the books data from the backend
+  const [ bookinfo, setbookInfo ] = useState([])
+  
+  // error message in case books not avaliable
+  const [ errorMessage, setErrorMessage ] = useState("")
+
+  // fetching the books data from the server
+  useEffect(() => {
+    const bookData = async () => {
+      try {
+        const res = await axios.get(import.meta.env.VITE_BOOK_API)
+        setbookInfo(res.data.book)
+      } catch (error) {
+        setErrorMessage('Books Not Avaliable Now', error)
+      }
+    }
+    bookData()
+  },[])
 
   return (
     <>
@@ -58,9 +78,9 @@ const OurBooks = () => {
 
         {/* Show Books */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 mt-10">
-          {freecourses.map((book) => (
+          {bookinfo ? bookinfo.map((book) => (
             <div
-              key={book.id}
+              key={book._id}
               className="border rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:bg-gray-100 cursor-pointer">
               <img
                 src={book.image}
@@ -83,13 +103,17 @@ const OurBooks = () => {
                 <button
                   className={`w-full text-sm ${
                     book.category ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
-                  } text-white rounded-lg py-2 mt-4 transition duration-200`} onClick={() => book.category ? navigate(`/story/${book.id}`): console.log('Please Buy The Book') }
+                  } text-white rounded-lg py-2 mt-4 transition duration-200`} onClick={() => book.category ? navigate(`/story/${book._id}`): console.log('Please Buy The Book') }
                 >
-                  {book.category ? "Read" : "Buy"}
+                  {book.category ? "Read" : "Buy"} 
                 </button>
               </div>
             </div>
-          ))}
+          )) : 
+            <div className="justify-center text-center my-10 mx-5">
+              <p className='text-red-500 text-center font-bold text-xl'>{errorMessage}</p>
+            </div>
+          }
         </div>
       </div>
     </>
