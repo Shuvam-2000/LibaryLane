@@ -5,6 +5,7 @@ import { configDotenv } from 'dotenv';
 import cors from 'cors'; 
 import './models/connection.js'
 import bookRoute from './routes/bookRoute.js';
+import userRoute from './routes/userRoute.js'
 
 // initalizing the app
 const app = express();
@@ -16,7 +17,7 @@ configDotenv();
 const PORT = process.env.PORT || 8001;
 
 // middlewares
-app.use(bodyParser.json()); // Parse JSON request bodies
+app.use(express.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded request bodies
 app.use(cookieParser()); // Enable Cookie Parsing
 app.use(cors()); // Enable CORS for all routes
@@ -27,7 +28,8 @@ app.get('/', (req,res) => {
 })
 
 // defining the routes for the appllication
-app.use('/libarylane', bookRoute);
+app.use('/libarylane', bookRoute);   // book route
+app.use('/libarylane', userRoute);   // signup route
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
