@@ -9,7 +9,6 @@ const SignUp = () => {
         handleSubmit,
         formState: { errors, isSubmitting },
         reset,
-        watch
     } = useForm();
 
     // handling form submission
@@ -18,10 +17,6 @@ const SignUp = () => {
       console.log("Form Submitted", data)
       reset()
     }
-
-    // watch password field for validations
-    const password = watch("password");
-
 
   return (
     <div className="min-h-6">
@@ -80,21 +75,6 @@ const SignUp = () => {
       />
       {errors.password && (
         <p className="text-xs justify-start mt-2 mb-1 text-red-500">{errors.password.message}</p>
-      )}
-
-      {/* Confirm Password Validations */}
-      <input
-        type="text"
-        className={`w-full px-3 sm:py-2 py-1 text-xs border hover:border-black rounded-lg mt-2 ${errors.confirmPassword ? "border-red-500" : "border-gray-400"}`}
-        placeholder="Confirm Your Password"
-        {...register("confirmPassword", {
-          required: "Confirm Password is required",
-          validate: (value) =>
-            value === password || "Passwords do not match",
-        })}
-      />
-      {errors.confirmPassword && (
-        <p className="text-xs justify-start mt-2 text-red-500">{errors.confirmPassword.message}</p>
       )}
       <button disabled={isSubmitting} value={isSubmitting ? "Submitting" : "Submit"} className="bg-[#f21c1c] text-white font-mono px-10 py-2 mt-4 rounded-lg hover:bg-red-600 transition-all">
         SignIn
