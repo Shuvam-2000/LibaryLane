@@ -82,7 +82,7 @@ const HaveALook = () => {
 
       <div className="mt-8 w-full">
         {loading ? (
-          <div className="text-center">Loading...</div> 
+          <div className="text-center sm:font-medium mx-2 text-red-500">Loading...</div> 
         ) : showFreeBook.length === 0 ? (
           <div className="justify-center text-center mx-20 my-40">
             <p className="text-red-500 font-medium text-xl">{errorMessage}</p> </div>
