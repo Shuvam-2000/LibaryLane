@@ -24,19 +24,21 @@ const Login = () => {
         <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
       </div>
 
-      {/* username validation */}
+      {/* Email Validation */}
       <input
         type="text"
-        className={`w-full px-3 sm:py-2 py-1 text-xs border hover:border-black rounded-lg mt-2 ${errors.username ? "border-red-500" : "border-gray-400"}`}
-        placeholder="Enter Your UserName"
-        {...register("username", {
-          required: "UserName is Required",
-          minLength: {value: 4, message: "Min length should be at least 4"},
-          maxLength:{value: 10,  message: "Max length should be at least 10"}
+        className={`w-full px-3 sm:py-2 text-xs py-1 border hover:border-black rounded-lg mt-2 ${errors.email ? "border-red-500": "border-gray-400"}`}
+        placeholder="Enter Your Email"
+        {...register("email",{
+          required: "Email is Required",
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Invalid email address",
+          },
         })}
       />
-      {errors.username && (
-        <p className="text-xs justify-start m-30 mt-2 text-red-500 ">{errors.username.message}</p>
+      {errors.email && (
+        <p className="text-xs justify-start m-30 mt-1 text-red-500">{errors.email.message}</p>
       )}
 
       {/* password validation */}
