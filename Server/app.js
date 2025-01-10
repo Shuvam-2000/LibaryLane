@@ -29,7 +29,7 @@ app.get('/', (req,res) => {
 
 // defining the routes for the appllication
 app.use('/libarylane', bookRoute);   // book route
-app.use('/libarylane', userRoute);   // signup route
+app.use('/libarylane', userRoute);   // user route
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
