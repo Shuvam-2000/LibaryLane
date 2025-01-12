@@ -16,7 +16,7 @@ const HaveALook = () => {
   // State for loading status
   const [loading, setLoading] = useState(true); 
 
-  // Fetching the books data from the server
+  // Fetching the free books data from the server
   useEffect(() => {
     const freeBookData = async () => {
       try {
