@@ -1,14 +1,20 @@
 import express from 'express';
-import { getFreeBooks, getPaidBooks } from '../controllers/bookController.js';
+import { getFreeBookContent, getFreeBooks, getPaidBookContent, getPaidBooks } from '../controllers/bookController.js';
 import { verifyUserIsAuthenticated } from '../middleware/bookAuth.js';
 
 // intialize router
 const router = express.Router();
 
-// free books route 
+// free books preview route 
 router.get('/book/free', getFreeBooks);
 
-// paid books route
-router.get('/book/paid', verifyUserIsAuthenticated, getPaidBooks )
+// free book content access route
+router.get('/freebook/:freebookId', getFreeBookContent);
+
+// paid books preview route
+router.get('/book/paid', getPaidBooks);
+
+// paid books content access route(requires authentication)
+router.get('/book/:bookid', verifyUserIsAuthenticated, getPaidBookContent);
 
 export default router;
