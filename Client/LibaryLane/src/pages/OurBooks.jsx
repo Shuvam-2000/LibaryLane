@@ -2,22 +2,26 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 const OurBooks = () => {
 
   const navigate = useNavigate()
 
-  // state for rendering the books data from the backend
+  // state for rendering the paid books data from the backend
   const [ bookinfo, setbookInfo ] = useState([])
   
   // error message in case books not avaliable
   const [ errorMessage, setErrorMessage ] = useState("")
 
-  // fetching the books data from the server
+  // fetching the paid books data from the server
   useEffect(() => {
     const bookData = async () => {
       try {
-        const res = await axios.get(import.meta.env.VITE_BOOK_API)
-        setbookInfo(res.data.book)
+        const res = await axios.get(import.meta.env.VITE_PAID_BOOK_API, {
+         withCredentials: true, // Include credentials like cookies
+        })
+        setbookInfo(res.data.paidBooks)
       } catch (error) {
         setErrorMessage('Books Not Avaliable Now', error)
       }
@@ -101,11 +105,11 @@ const OurBooks = () => {
                    {book.category ? <span className="font-medium px-3 py-1 bg-blue-600 text-white border border-blue rounded-md">Free</span> : <span className="font-medium">Price: Rs. {book.price}</span>}
                 </p>
                 <button
-                  className={`w-full text-sm ${
-                    book.category ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
-                  } text-white rounded-lg py-2 mt-4 transition duration-200`} onClick={() => book.category ? navigate(`/story/${book._id}`): console.log('Please Buy The Book') }
+                  className="w-full text-sm bg-red-500 hover:bg-red-600
+                   text-white rounded-lg py-2 mt-4 transition duration-200"
+                   onClick={() => navigate(`/paidbook/${book._id}`)}
                 >
-                  {book.category ? "Read" : "Buy"} 
+                  Buy 
                 </button>
               </div>
             </div>
