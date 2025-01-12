@@ -20,8 +20,8 @@ const HaveALook = () => {
   useEffect(() => {
     const freeBookData = async () => {
       try {
-        const res = await axios.get(import.meta.env.VITE_BOOK_API); 
-        setShowFreeBook(res.data.book.filter((data) => data.category === 'Free'));
+        const res = await axios.get(import.meta.env.VITE_FREE_BOOK_API); 
+        setShowFreeBook(res.data.freeBooks);
         setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
         setErrorMessage('Books Not Available Now', error);
@@ -97,9 +97,9 @@ const HaveALook = () => {
                     <p className="text-center mb-4 text-xs text-gray-500 font-bold">Author: {book.author}</p>
                     <p
                       className="text-center text-sm bg-green-500 hover:bg-green-600 text-white rounded-lg py-2 mt-10"
-                      onClick={() => navigate(`/story/${book._id}`)}
+                      onClick={() => navigate(`/freebook/${book._id}`)}
                     >
-                      {book.category ? 'Read' : ''}
+                      Read
                     </p>
                   </div>
                 </div>
