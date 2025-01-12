@@ -7,7 +7,8 @@ import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import StoryPage from './pages/StoryPage';
+import FreeBook from './pages/FreeBook';
+import PaidBook from './pages/PaidBook';
 import './index.css';
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/story/:id" element={<StoryPage />} />
+          <Route path="/freebook/:id" element={<FreeBook />} />
+          <Route path="/paidbook/:id" element={<PaidBook />} />
         </Routes>
         <Footer />
       </BrowserRouter>
