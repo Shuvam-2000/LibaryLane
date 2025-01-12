@@ -31,7 +31,7 @@ export const userSignUp = async (req,res) => {
         res.cookie('token', jwtToken, {
             httpOnly : true,
             secure: process.env.NODE_ENV === 'production', // use secure cookies in production
-            sameSite: 'strict', // prevent CSRF(Cross-Site Request Forgery)
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Use 'none' for cross-origin in production, 'lax' for local development
             maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 1 day
         })
 
@@ -66,7 +66,7 @@ export const userLogin = async (req,res) => {
         res.cookie('token', jwtToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // use secure cookies in production
-            sameSite: 'strict', // prevent CSRF
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Use 'none' for cross-origin in production, 'lax' for local development
             maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 1 day
         })
 
@@ -82,8 +82,8 @@ export const userLogout = async (req,res) => {
     // clear the cookie when user logs out 
     res.clearCookie('token', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
+        secure: process.env.NODE_ENV === 'production', // use secure cookies in production
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Use 'none' for cross-origin in production, 'lax' for local development
         maxAge: 0
     })
     res.status(200).json({ message: 'Logged Out Successfully' });
