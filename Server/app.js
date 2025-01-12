@@ -20,7 +20,12 @@ const PORT = process.env.PORT || 8001;
 app.use(express.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded request bodies
 app.use(cookieParser()); // Enable Cookie Parsing
-app.use(cors()); // Enable CORS for all routes
+app.use(cors(
+    {
+        origin: 'http://localhost:5173', // Frontend URL
+        credentials: true,  // Allow credentials (cookies) 
+    }
+)); 
 
 // test route
 app.get('/', (req,res) => {
@@ -29,7 +34,7 @@ app.get('/', (req,res) => {
 
 // defining the routes for the appllication
 app.use('/libarylane', bookRoute);   // book route
-app.use('/libarylane', userRoute);   // user route
+app.use('/user', userRoute);   // user route
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
