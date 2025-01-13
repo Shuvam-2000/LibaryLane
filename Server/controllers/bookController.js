@@ -13,18 +13,26 @@ export const getFreeBooks = async (req,res) => {
 }
 
 // fetching content of the free book with id
-export const getFreeBookContent = async (req,res) => {
-    const { freebookId } = req.params;  // fetching free books id
+export const getFreeBookContent = async (req, res) => {
+    const { freebookId } = req.params;  // Fetching the free book ID from params
     try {
-        
-        // fetch book content from the database by Id
+        // Fetch book content from the database by ID
         const freeBookContent = await BookModel.findById(freebookId);
-        if(!freeBookContent) return res.status(404).json({ message: "Free Books Not Found"});
-        return res.status(200).json({ message: "Free Book Content Found" , id: freebookId })
-    } catch (error) {
         
+        // If the book is not found
+        if (!freeBookContent) return res.status(404).json({ message: 'Free Book Not Found' });
+        
+        // Return the full content of the book
+        return res.status(200).json({
+            message: 'Free Book Content Found',
+            book: freeBookContent  // Send full book content, not just the ID
+        });
+    } catch (error) {
+        console.error('Error Fetching The Free Book:', error);
+        res.status(500).json({ message: 'Error Fetching the Free Book' });
     }
-}
+};
+
 
 // fetching paid books from the database
 export const getPaidBooks =  async (req,res) => {
@@ -38,16 +46,21 @@ export const getPaidBooks =  async (req,res) => {
 }
 
 // fectching content of the paid books with the ID
-export const getPaidBookContent = async (req,res) => {
-    const { bookid } = req.params; // fetching paid books id
+export const getPaidBookContent = async (req, res) => {
+    const { bookid } = req.params; // Fetching paid books ID from params
     try {
-
-        // / Fetch book content from the database by ID
+        // Fetch book content from the database by ID
         const paidBookContent = await BookModel.findById(bookid);
-        if(!paidBookContent) return res.status(404).json({ message: 'Book Content Not Found'});
-        return res.status(200).json({ message: "Book Content Found", id: bookid });
+        
+        // If the book is not found
+        if (!paidBookContent) return res.status(404).json({ message: 'Book Content Not Found' });
+
+        // Return the full content of the book
+        return res.status(200).json({
+            message: "Book Content Found",
+            book: paidBookContent // Ensure full book details are returned
+        });
     } catch (error) {
-        console.error('Error Fetching The Books', error);
-        res.status(200).json({ message: 'Error Fetching the Books' });
+        res.status(500).json({ message: 'Error Fetching the Books' });
     }
-}
+};
