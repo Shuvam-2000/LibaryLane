@@ -1,9 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
+import { useState } from "react";
+import axios from 'axios'
 
 const Login = () => {
 
+    // state for handling error message
+    const [ errorMessage, setErrorMessage ] = useState('');
+
     const navigate =useNavigate()
+
     const {
         register,
         handleSubmit,
@@ -12,9 +18,22 @@ const Login = () => {
     } = useForm();
 
     // hanlding of the form submission
-    const onSubmit = async () => {
-        await new Promise((resolve) => setTimeout(resolve,5000))
-        reset()
+    const onSubmit = async (data) => {
+        try {
+          // Make the Post request with form data for user login
+          await axios.post(import.meta.env.VITE_USER_LOGIN_API, data, {
+            withCredentials: true,
+          });
+          reset()
+          navigate('/')
+        } catch (error) {
+          // Set Error message if login request fails
+          if(error.message){
+            setErrorMessage(error.response.data.message || "Error login")
+          }else{
+            setErrorMessage("An unexpected error occurred. Please try again later.");
+          }
+        }
     }
 
   return (
@@ -23,6 +42,11 @@ const Login = () => {
         <p className="font-mono text-3xl">Login</p>
         <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
       </div>
+
+      {/* Display error message if any */}
+      {errorMessage && (
+          <p className="text-xs text-red-500 mb-2">{errorMessage}</p>
+      )}
 
       {/* Email Validation */}
       <input
