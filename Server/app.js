@@ -6,6 +6,7 @@ import cors from 'cors';
 import './models/connection.js'
 import bookRoute from './routes/bookRoute.js';
 import userRoute from './routes/userRoute.js'
+import authRoute from './routes/authRoute.js'
 
 // initalizing the app
 const app = express();
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded reques
 app.use(cookieParser()); // Enable Cookie Parsing
 app.use(cors(
     {
-        origin: 'http://localhost:5173', // Frontend URL
+        origin: process.env.FRONTEND_URL, // Frontend URL
         credentials: true,  // Allow credentials (cookies) 
     }
 )); 
@@ -35,6 +36,7 @@ app.get('/', (req,res) => {
 // defining the routes for the appllication
 app.use('/libarylane', bookRoute);   // book route
 app.use('/user', userRoute);   // user route
+app.use('/auth', authRoute)  // auth route(for handling user authentication globally)
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
