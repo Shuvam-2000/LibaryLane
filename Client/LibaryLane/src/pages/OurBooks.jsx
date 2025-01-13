@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-axios.defaults.withCredentials = true;
 
 const OurBooks = () => {
 
@@ -28,6 +27,25 @@ const OurBooks = () => {
     }
     bookData()
   },[])
+
+
+  // fucntion to acess the paid book content by checking the user is autheticated
+  const handleBuyClick = async (bookId) => {
+    try {
+      // Send a request to check if the user is authenticated
+      const response = await axios.get(import.meta.env.VITE_USER_AUTHENTICATION_GLOBAL_API, { 
+      withCredentials: true 
+      });
+      if (response.status === 200) {
+        // If authenticated, navigate to the paid book content page
+        navigate(`/paidbook/${bookId}`);
+      }
+    } catch (error) {
+      // If not authenticated, redirect to the login page
+      setErrorMessage('You need to Login', error)
+      navigate('/login');
+    }
+  };
 
   return (
     <>
@@ -107,9 +125,9 @@ const OurBooks = () => {
                 <button
                   className="w-full text-sm bg-red-500 hover:bg-red-600
                    text-white rounded-lg py-2 mt-4 transition duration-200"
-                   onClick={() => navigate(`/paidbook/${book._id}`)}
+                   onClick={() => handleBuyClick(book._id)} 
                 >
-                  Buy 
+                  Buy
                 </button>
               </div>
             </div>
