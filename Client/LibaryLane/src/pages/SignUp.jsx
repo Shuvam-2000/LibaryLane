@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
+
+  // state for handling error message
   const [errorMessage, setErrorMessage] = useState(''); 
 
   const navigate = useNavigate();
