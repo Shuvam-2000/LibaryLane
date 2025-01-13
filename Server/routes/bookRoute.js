@@ -17,4 +17,8 @@ router.get('/book/paid', getPaidBooks);
 // paid books content access route(requires authentication)
 router.get('/book/:bookid', verifyUserIsAuthenticated, getPaidBookContent);
 
+// route for checking the user is authenticated for paid books content preview
+router.get('/check-auth', verifyUserIsAuthenticated);
+
+
 export default router;
