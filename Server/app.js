@@ -5,8 +5,9 @@ import { configDotenv } from 'dotenv';
 import cors from 'cors'; 
 import './models/connection.js'
 import bookRoute from './routes/bookRoute.js';
-import userRoute from './routes/userRoute.js'
-import authRoute from './routes/authRoute.js'
+import userRoute from './routes/userRoute.js';
+import authRoute from './routes/authRoute.js';
+import contactRoute from './routes/contactRoute.js';
 
 // initalizing the app
 const app = express();
@@ -37,6 +38,7 @@ app.get('/', (req,res) => {
 app.use('/libarylane', bookRoute);   // book route
 app.use('/user', userRoute);   // user route
 app.use('/auth', authRoute)  // auth route(for handling user authentication globally)
+app.use('/userContact', contactRoute)  // contactinfo route 
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
