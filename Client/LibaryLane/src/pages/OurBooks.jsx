@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import axios from 'axios';
 
 
@@ -44,6 +45,7 @@ const OurBooks = () => {
       // If not authenticated, redirect to the login page
       setErrorMessage('You need to Login', error)
       navigate('/login');
+      toast.error('Please Login To View Paid Books')
     }
   };
 
