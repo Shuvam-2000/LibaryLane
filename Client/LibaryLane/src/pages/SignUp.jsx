@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import { useState } from "react";
+// import { useState } from "react";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 const SignUp = () => {
 
   // state for handling error message
-  const [errorMessage, setErrorMessage] = useState(''); 
+  // const [errorMessage, setErrorMessage] = useState(''); 
 
   const navigate = useNavigate();
   const {
@@ -25,12 +26,15 @@ const SignUp = () => {
       });
       reset();
       navigate('/');
+      toast.success('SignUp SuccessFull')
     } catch (error) {
       // Set error message if the request fails
       if (error.response) {
-        setErrorMessage(error.response.data.message || "Error submitting form");
+        // setErrorMessage(error.response.data.message || "Error submitting form");
+        toast.error(error.response.data.message || "Error submitting form")
       } else {
-        setErrorMessage("An unexpected error occurred. Please try again later.");
+        // setErrorMessage("An unexpected error occurred. Please try again later.");
+        toast.error("An unexpected error occurred. Please try again later.")
       }
     }
   };
@@ -42,11 +46,6 @@ const SignUp = () => {
           <p className="font-mono text-3xl">SignUp</p>
           <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
         </div>
-
-        {/* Display error message if any */}
-        {errorMessage && (
-          <p className="text-xs text-red-500 mb-2">{errorMessage}</p>
-        )}
 
         {/* UserName Validation */}
         <input

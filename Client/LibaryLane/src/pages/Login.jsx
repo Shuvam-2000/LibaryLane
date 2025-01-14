@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import { useState } from "react";
+// import { useState } from "react";
+import toast from "react-hot-toast";
 import axios from 'axios'
 
 const Login = () => {
 
     // state for handling error message
-    const [ errorMessage, setErrorMessage ] = useState('');
+    // const [ errorMessage, setErrorMessage ] = useState('');
 
     const navigate =useNavigate()
 
@@ -26,12 +27,15 @@ const Login = () => {
           });
           reset()
           navigate('/')
+          toast.success('Login SuccessFull')
         } catch (error) {
           // Set Error message if login request fails
           if(error.message){
-            setErrorMessage(error.response.data.message || "Error login")
+            // setErrorMessage(error.response.data.message || "Error login")
+            toast.error(error.response.data.message || "Error login")
           }else{
-            setErrorMessage("An unexpected error occurred. Please try again later.");
+            // setErrorMessage("An unexpected error occurred. Please try again later.");
+            toast.error('An unexpected error occurred. Please try again later.')
           }
         }
     }
@@ -42,11 +46,6 @@ const Login = () => {
         <p className="font-mono text-3xl">Login</p>
         <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
       </div>
-
-      {/* Display error message if any */}
-      {errorMessage && (
-          <p className="text-xs text-red-500 mb-2">{errorMessage}</p>
-      )}
 
       {/* Email Validation */}
       <input
