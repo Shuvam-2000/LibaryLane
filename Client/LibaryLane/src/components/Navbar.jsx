@@ -61,7 +61,7 @@ const Navbar = () => {
                     <li className="py-1">ABOUT US</li>
                     <hr className="border-none outline-none h-0.5 bg-red-600 w-3/5 m-auto hidden group-hover:block" />
                 </NavLink>
-                <NavLink to="/contactus" className="group">
+                <NavLink to="/contact" className="group">
                     <li className="py-1">CONTACT US</li>
                     <hr className="border-none outline-none h-0.5 bg-red-600 w-3/5 m-auto hidden group-hover:block" />
                 </NavLink>
@@ -127,7 +127,7 @@ const Navbar = () => {
                     </NavLink>
                     <NavLink
                         className="py-2 pl-6 text-center font-medium"
-                        to="/contactus"
+                        to="/contact"
                         onClick={() => setMenuVisible(false)}
                     >
                         CONTACT US
