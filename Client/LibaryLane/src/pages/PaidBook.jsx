@@ -4,10 +4,11 @@ import { useParams, Link } from 'react-router-dom';
 
 const PaidBook = () => {
   const { id } = useParams(); // Get bookid from the route parameters
-  const [bookContent, setBookContent] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [bookContent, setBookContent] = useState(null);  // State to fetch book data
+  const [errorMessage, setErrorMessage] = useState('');  // State to render error message 
+  const [loading, setLoading] = useState(true);  // state tio handle loading state
 
+  // fetching book data from the backend with the API
   useEffect(() => {
     const fetchBookById = async () => {
       try {
@@ -25,10 +26,12 @@ const PaidBook = () => {
     fetchBookById();
   }, [id]);
 
+  // handling the loading state
   if (loading) {
     return <div>Loading book details...</div>;
   }
 
+  // handling the error message
   if (errorMessage) {
     return <div className="text-red-500 font-bold">{errorMessage}</div>;
   }
