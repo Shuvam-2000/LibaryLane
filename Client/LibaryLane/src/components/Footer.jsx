@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Social Media Section */}
         <div className="text-center mt-4">
           <h2 className="text-md font-medium mb-2 tracking-wide">Connect With Us:</h2>
-          <div className="flex justify-center gap-6 mt-6">
+          <div className="flex justify-center gap-6 mt-6 cursor-pointer">
             <FaFacebook className="w-[20px] hover:text-[#f21c1c]" />
             <FaInstagramSquare className="w-[20px] hover:text-[#f21c1c]" />
             <FaTwitter className="w-[20px] hover:text-[#f21c1c]" />
