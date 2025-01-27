@@ -32,6 +32,7 @@ const SignUp = () => {
       if (error.response) {
         // setErrorMessage(error.response.data.message || "Error submitting form");
         toast.error(error.response.data.message || "Error submitting form")
+        reset()
       } else {
         // setErrorMessage("An unexpected error occurred. Please try again later.");
         toast.error("An unexpected error occurred. Please try again later.")
