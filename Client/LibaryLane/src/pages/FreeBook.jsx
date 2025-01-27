@@ -40,7 +40,7 @@ const FreeBook = () => {
     <div className="max-w-4xl mx-auto py-10 px-6">
       {/* Back Button */}
       <Link to="/" className="text-black border border-gray-500 rounded-md px-2 py-1 text-sm font-semibold mb-12 inline-block">
-        ← Back to Our Books
+        ← Back to Home
       </Link>
 
       {bookContent && (
