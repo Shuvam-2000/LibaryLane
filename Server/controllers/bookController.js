@@ -7,7 +7,6 @@ export const getFreeBooks = async (req,res) => {
         const freeBooks = await BookModel.find();
         res.status(200).json({ message: "Free Book Found", freeBooks });
     } catch (error) {
-        console.log('Error Fecthing Free Books', error)
         res.status(500).json({ message: "Error Fecthing Free Books" })
     }
 }
@@ -28,7 +27,6 @@ export const getFreeBookContent = async (req, res) => {
             book: freeBookContent  // Send full book content, not just the ID
         });
     } catch (error) {
-        console.error('Error Fetching The Free Book:', error);
         res.status(500).json({ message: 'Error Fetching the Free Book' });
     }
 };

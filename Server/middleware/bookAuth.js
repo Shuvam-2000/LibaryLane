@@ -15,7 +15,6 @@ export const verifyUserIsAuthenticated = async (req,res, next) => {
         req.user = tokenVerified // attach the user information to the req object
         next() // Proceed to the next middlewares 
     } catch (error) {
-        console.error("Token verification error:", error.message);
         res.status(401).json({ message: "Invalid or expired token" });
     }
 } 

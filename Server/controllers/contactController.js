@@ -18,7 +18,6 @@ export const getContactInfo = async (req,res) => {
         await newMessage.save();
         res.status(200).json({ message: 'Message Received', success: true });
     } catch (error) {
-        console.error('Intenral Server Error', error);
         res.status(500).json({ message: 'Intenral Server Error', success: false })
     }
 }

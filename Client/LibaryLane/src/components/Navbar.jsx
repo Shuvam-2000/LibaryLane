@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import menu_icon from "../assets/menu_icon.png";
+import toast from 'react-hot-toast'
 import axios from "axios";
 
 const Navbar = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
                 await axios.get(import.meta.env.VITE_USER_AUTHENTICATION_GLOBAL_API, { withCredentials: true });
                 setIsAuthenticated(true);
             } catch (error) {
-                console.error("Error checking auth status:", error);
+                toast.error("Error checking auth status:", error);
                 setIsAuthenticated(false);
             }
         };
@@ -31,7 +32,7 @@ const Navbar = () => {
             setIsAuthenticated(false);
             navigate("/login");
         } catch (error) {
-            console.error("Logout failed:", error);
+            toast.error("Logout failed:", error);
         }
     };
 
