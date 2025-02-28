@@ -21,9 +21,9 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     try {
       // Make the POST request with form data
-      await axios.post('https://libarylane.onrender.com/user/signup', data, {
+      await axios.post('http://localhost:8000/user/signup', data, {
       withCredentials: true, 
-      }); 
+      });
       reset();
       navigate('/');
       toast.success('SignUp SuccessFull')

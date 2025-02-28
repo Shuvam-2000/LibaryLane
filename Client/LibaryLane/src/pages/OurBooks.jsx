@@ -18,9 +18,9 @@ const OurBooks = () => {
   useEffect(() => {
     const bookData = async () => {
       try {
-        const res = await axios.get('https://libarylane.onrender.com/libarylane/book/paid', {
+        const res = await axios.get('http://localhost:8000/libarylane/book/paid', {
          withCredentials: true, // Include credentials like cookies
-        }) 
+        })
         setbookInfo(res.data.paidBooks)
       } catch (error) {
         setErrorMessage('Books Not Avaliable Now', error)

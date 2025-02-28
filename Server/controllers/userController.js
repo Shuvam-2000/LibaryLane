@@ -30,8 +30,6 @@ export const userSignUp = async (req,res) => {
         // Set the token to HTTP-only cookie
         res.cookie('token', jwtToken, {
             httpOnly : true,
-            secure: process.env.NODE_ENV === 'production', // use secure cookies in production
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Use 'none' for cross-origin in production, 'lax' for local development
             maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 1 day
         })
 
@@ -65,8 +63,6 @@ export const userLogin = async (req,res) => {
         // Set the token to the HTTP-only cookie
         res.cookie('token', jwtToken, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // use secure cookies in production
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Use 'none' for cross-origin in production, 'lax' for local development
             maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 1 day
         })
 
