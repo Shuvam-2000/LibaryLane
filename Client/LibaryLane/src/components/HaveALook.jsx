@@ -28,7 +28,7 @@ const HaveALook = () => {
         setLoading(false); // Set loading to false in case of an error
       }
     };
-    freeBookData();
+    freeBookData(); 
   }, []);
 
   // Navigate to story page

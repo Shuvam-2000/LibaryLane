@@ -22,7 +22,7 @@ const Navbar = () => {
                 setIsAuthenticated(false);
             }
         };
-        checkAuthStatus();
+        checkAuthStatus(); 
     }, []);
 
     // Handle logout

@@ -23,7 +23,7 @@ const SignUp = () => {
       // Make the POST request with form data
       await axios.post('https://libarylane.onrender.com/user/signup', data, {
       withCredentials: true, 
-      });
+      }); 
       reset();
       navigate('/');
       toast.success('SignUp SuccessFull')

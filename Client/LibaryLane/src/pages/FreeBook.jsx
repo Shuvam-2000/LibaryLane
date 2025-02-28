@@ -16,7 +16,7 @@ const FreeBook = () => {
             withCredentials: true, // Include credentials if needed
           });
           setBookContent(res.data.book); // Set the entire book object
-        } catch (error) {
+        } catch (error) { 
           setErrorMessage('Failed to fetch book details.', error);
         } finally {
           setLoading(false);
