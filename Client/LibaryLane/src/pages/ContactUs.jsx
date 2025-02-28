@@ -18,7 +18,7 @@ const ContactUs = () => {
   // handling contact us form submission
   const onSubmit = async (data) => {
     try {
-      await axios.post(import.meta.env.VITE_CONTACT_FORM_API, data)
+      await axios.post('http://localhost:8000/userContact/contactinfo', data)
       reset()
       toast.success('We will get back to you soon')
     } catch (error) {
