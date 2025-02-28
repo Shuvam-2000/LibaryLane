@@ -18,7 +18,7 @@ const OurBooks = () => {
   useEffect(() => {
     const bookData = async () => {
       try {
-        const res = await axios.get(import.meta.env.VITE_PAID_BOOK_API, {
+        const res = await axios.get('https://libarylane.onrender.com/libarylane/book/paid', {
          withCredentials: true, // Include credentials like cookies
         })
         setbookInfo(res.data.paidBooks)

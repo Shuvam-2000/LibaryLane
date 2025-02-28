@@ -22,7 +22,7 @@ const Login = () => {
     const onSubmit = async (data) => {
         try {
           // Make the Post request with form data for user login
-          await axios.post(import.meta.env.VITE_USER_LOGIN_API, data, {
+          await axios.post('https://libarylane.onrender.com/user/login', data, {
             withCredentials: true,
           });
           reset()

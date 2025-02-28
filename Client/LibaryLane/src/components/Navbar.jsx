@@ -15,7 +15,7 @@ const Navbar = () => {
     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
-                await axios.get(import.meta.env.VITE_USER_AUTHENTICATION_GLOBAL_API, { withCredentials: true });
+                await axios.get('https://libarylane.onrender.com/auth/check-auth', { withCredentials: true });
                 setIsAuthenticated(true);
             } catch (error) {
                 toast.error("Error checking auth status:", error);
@@ -28,7 +28,7 @@ const Navbar = () => {
     // Handle logout
     const handleLogout = async () => {
         try {
-            await axios.get(import.meta.env.VITE_USER_LOGOUT_API, { withCredentials: true });
+            await axios.get('https://libarylane.onrender.com/user/logout', { withCredentials: true });
             setIsAuthenticated(false);
             navigate("/login");
         } catch (error) {

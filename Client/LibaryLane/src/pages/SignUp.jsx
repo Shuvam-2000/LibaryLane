@@ -21,7 +21,7 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     try {
       // Make the POST request with form data
-      await axios.post(import.meta.env.VITE_USER_SIGNUP_API, data, {
+      await axios.post('https://libarylane.onrender.com/user/signup', data, {
       withCredentials: true, 
       });
       reset();
