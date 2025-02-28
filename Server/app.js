@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded reques
 app.use(cookieParser()); // Enable Cookie Parsing
 app.use(cors(
     {
-        origin: 'https://libary-lane.vercel.app/', // Frontend URL
+        origin: '*', // Frontend URL
         credentials: true,  // Allow credentials (cookies) 
     }
 )); 
