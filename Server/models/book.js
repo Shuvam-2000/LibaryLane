@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const BookSchema = mongoose.Schema({
-    name: {
+    title: {
         type: String
     },
-    title: {
+    auhtor: {
         type: String
     },
     price: {
@@ -15,7 +15,13 @@ const BookSchema = mongoose.Schema({
     },
     image: {
         type: String
-    }
+    },
+    genre: { 
+        type: String 
+    }, 
+    story: { 
+        type: String 
+    }, 
 })
 
 const BookModel = mongoose.model('books', BookSchema)
