@@ -20,7 +20,7 @@ const HaveALook = () => {
   useEffect(() => {
     const freeBookData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/libarylane/book/free'); 
+        const res = await axios.get('https://libarylane-server.onrender.com/libarylane/book/free'); 
         setShowFreeBook(res.data.freeBooks);
         setLoading(false); // Set loading to false once data is fetched
       } catch (error) {

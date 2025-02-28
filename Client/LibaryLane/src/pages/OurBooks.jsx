@@ -18,7 +18,7 @@ const OurBooks = () => {
   useEffect(() => {
     const bookData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/libarylane/book/paid', {
+        const res = await axios.get('https://libarylane-server.onrender.com/libarylane/book/paid', {
          withCredentials: true, // Include credentials like cookies
         })
         setbookInfo(res.data.paidBooks)
