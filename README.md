@@ -123,12 +123,3 @@
    - Backend: [http://localhost:8000](http://localhost:8000)
 
 ---
-
-## Future Enhancements
-
-1. **Payment Integration:**
-   - Add payment gateways for purchasing books.
-2. **Enhanced Filtering:**
-   - Improve product filters for better user experience.
-
-
