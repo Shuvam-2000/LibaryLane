@@ -12,7 +12,7 @@ const FreeBook = () => {
     useEffect(() => {
       const fetchBookById = async () => {
         try {
-          const res = await axios.get(`http://localhost:8000/libarylane/freebook/${id}`, {
+          const res = await axios.get(`https://libarylane.onrender.com/freebook/${id}`, {
             withCredentials: true, // Include credentials if needed
           });
           setBookContent(res.data.book); // Set the entire book object
