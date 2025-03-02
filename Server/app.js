@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded reques
 app.use(cookieParser()); // Enable Cookie Parsing
 app.use(cors(
     {
-        origin: 'https://libarylane-client.onrender.com', // Frontend URL
+        origin: 'http://localhost:5173/', // Frontend URL
         credentials: true,  // Allow credentials (cookies) 
     }
 )); 
